@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:local_storage_app/data/shar_prefs.dart';
+import 'package:local_storage_app/screen/files.dart';
 import 'package:local_storage_app/screen/notes.dart';
 import 'package:local_storage_app/screen/password.dart';
+import 'package:local_storage_app/screen/posts.dart';
 import 'package:local_storage_app/screen/setting.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -85,15 +87,39 @@ class _HomeScreenState extends State<HomeScreen> {
                             builder: (context) => const NotesScreen()));
                   },
                 ),
-
+                ListTile(
+                  title: Text(
+                    'Posts',
+                    style: TextStyle(fontSize: fontSize),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const PostsScreen()));
+                  },
+                ),
+                ListTile(
+                  title: Text(
+                    'Files',
+                    style: TextStyle(fontSize: fontSize),
+                  ),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const FilesScreen()));
+                  },
+                ),
               ],
             ),
           ),
           body: Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(image: AssetImage('assets/travel.jpg'), fit: BoxFit.cover)
-              
-            ),
+                image: DecorationImage(
+                    image: AssetImage('assets/travel.jpg'), fit: BoxFit.cover)),
           ),
         );
       },
